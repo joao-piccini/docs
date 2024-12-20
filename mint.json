@@ -28,7 +28,7 @@
   "tabs": [
     {
       "name": "API e Webhooks",
-      "url": "api"
+      "url": "api-reference"
     }
   ],
   "anchors": [
@@ -69,16 +69,16 @@
       ]
     },
     {
-      "group": "API e Webhooks",
+      "group": "Documentação",
       "pages": [
         "api-reference/introduction",
         "api-reference/authenticaton"
       ]
     },
     {
-      "group": "Endpoints",
+      "group": "Atendimentos",
       "pages": [
-        "api-reference/endpoint/atendimento/get",
+        "api-reference/endpoint/get",
         "api-reference/endpoint/create",
         "api-reference/endpoint/delete"
       ]

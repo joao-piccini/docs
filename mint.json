@@ -17,13 +17,13 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Suporte",
+      "url": "https://suporte.astrow.com.br/uzera"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Portal",
+    "url": "https://portal.astrow.com.br/"
   },
   "tabs": [
     {
@@ -72,7 +72,7 @@
       "group": "Documentação",
       "pages": [
         "api-reference/introduction",
-        "api-reference/authenticaton"
+        "api-reference/authentication"
       ]
     },
     {

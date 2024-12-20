@@ -1,18 +1,18 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Astrow",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/dark.png",
+    "light": "/logo/light.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#7604a4",
+    "light": "#7604a4",
+    "dark": "#7604a4",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#7604a4",
+      "to": "#7604a4"
     }
   },
   "topbarLinks": [

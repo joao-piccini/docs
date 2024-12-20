@@ -69,18 +69,18 @@
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "API e Webhooks",
       "pages": [
-        "api/introduction"
-        "api/authenticaton"
+        "api-reference/introduction"
+        "api-reference/authenticaton"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Endpoints",
       "pages": [
-        "api/endpoint/atendimento/get",
-        "api/endpoint/create",
-        "api/endpoint/delete"
+        "api-reference/endpoint/atendimento/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/delete"
       ]
     }
   ],

@@ -15,16 +15,7 @@
       "to": "#7604a4"
     }
   },
-  "topbarLinks": [
-    {
-      "name": "Suporte",
-      "url": "https://suporte.astrow.com.br/uzera"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Portal",
-    "url": "https://portal.astrow.com.br/"
-  },
+  "search": "Pesquisar...",
   "tabs": [
     {
       "name": "API e Webhooks",
@@ -33,19 +24,19 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "Portal",
+      "icon": "browser",
+      "url": "https://portal.astrow.com.br"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Suporte",
+      "icon": "headset",
+      "url": "https://suporte.astrow.com.br/uzera"
     },
     {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "name": "Site",
+      "icon": "globe",
+      "url": "https://astrow.com.br/"
     }
   ],
   "navigation": [

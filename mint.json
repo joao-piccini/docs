@@ -15,7 +15,9 @@
       "to": "#7604a4"
     }
   },
-  "search": "Pesquisar...",
+  "search": {
+    "prompt": "Pesquisar..."
+  },
   "tabs": [
     {
       "name": "API e Webhooks",

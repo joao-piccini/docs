@@ -3,7 +3,7 @@ title: "Autenticação"
 description: "Gere e utilize tokens de autenticação"
 ---
 
-Todos os endpoints da API são autenticados usando Bearer tokens, que podem ser gerados dentro da plataforma, conforme demonstrado abaixo:
+Todos os endpoints da API são autenticados usando `Bearer` tokens, que podem ser gerados dentro da plataforma, conforme demonstrado abaixo:
 
 ## Gerando tokens
 
@@ -12,3 +12,11 @@ As operações realizadas pela API sempre estarão ligadas a um usuário do sist
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4KzFe50RQkQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
 ## Utilizando tokens
+
+A utilização do token é feita pelo cabeçalho (`Header`) da requisição, conforme demonstrado abaixo:
+
+```
+"Authorization": "Bearer $TOKEN"
+```
+
+Basta substituir a variável `$TOKEN` pelo seu token gerado na plataforma, conforme demonstrado na seção anterior.

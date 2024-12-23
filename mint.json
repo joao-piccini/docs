@@ -20,11 +20,11 @@
   },
   "tabs": [
       {
-      "name": "Docs",
+      "name": "Documentação",
       "url": "/"
     },
     {
-      "name": "API e Webhooks",
+      "name": "Endpoints",
       "url": "api-reference"
     }
   ],
@@ -57,9 +57,9 @@
     {
       "group": "Documentação",
       "pages": [
-        "api-reference/introduction",
-        "api-reference/authentication",
-        "api-reference/webhooks"
+        "introduction",
+        "authentication",
+        "webhooks"
       ]
     },
     {

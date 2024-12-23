@@ -1,71 +1,28 @@
 ---
-title: Introduction
-description: 'Welcome to the home of your new documentation'
+title: "Introdução"
+description: "Bem-vindo a documentação da API do Astrow Suite"
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+<Note>
+  Caso precise de ajuda com a documentação e/ou utilização da API, entre em contato com nosso suporte clicando [neste link](https://suporte.astrow.com.br/uzera).
+</Note>
 
-## Setting up
+## Bem-vindo
 
-The first step to world-class documentation is setting up your editing environments.
+Existem diversas aplicações para o uso da API e dos Webhooks, os mais comuns são sincronizar informações dos atendimentos com outros sistemas, você pode conferir todos os endpoints disponíveis abaixo.
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+Todos os endpoints da documentação possuem um domínio e token genéricos a fins de exemplo, você deve substituir pelo domínio do seu Suite e o token pelo que você gerar.
 
-## Make it yours
+<Card title="Endpoints" icon="route" href="https://docs.astrow.com.br/api-reference/endpoint/atendimento/buscar">
+  Veja todas as rotas e suas especificações
+</Card>
 
-Update your docs to your brand and add valuable content for the best user conversion.
+<Card title="Webhooks" icon="webhook" href="https://docs.astrow.com.br/api-reference/webhooks">
+  Confira os Webhooks disponíveis
+</Card>
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+Todos os endpoints da API são autenticados usando Bearer tokens, confira a seção de autenticação.
+
+<Card title="Autenticação" icon="shield-check" href="https://docs.astrow.com.br/api-reference/authentication">
+  Gere e utilize tokens de autenticação
+</Card>

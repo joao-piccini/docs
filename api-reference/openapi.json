@@ -461,7 +461,7 @@
         }
       }
     },
-    "/canal-comunicacao/": {
+    "/canal-comunicacao": {
       "get": {
         "tags": [
           "Canais de comunicação"
@@ -508,7 +508,7 @@
         }
       }
     },
-    "/canal-comunicacao/212b435c1cc6221ac1zf125a": {
+    "/canal-comunicacao/{id}": {
       "get": {
         "tags": [
           "Canais de comunicação"
@@ -557,7 +557,7 @@
         }
       }
     },
-    "/canal-comunicacao/625ac335dadd05f1bd084040/template": {
+    "/canal-comunicacao/{id}/template": {
       "get": {
         "tags": [
           "Canais de comunicação"
@@ -611,7 +611,7 @@
         }
       }
     },
-    "/canal-comunicacao/625ac335dadd05f1bd084040/template/limites-diarios-envio": {
+    "/canal-comunicacao/{id}/template/limites-diarios-envio": {
       "get": {
         "tags": [
           "Canais de comunicação"

@@ -12,7 +12,7 @@
     }
   ],
   "paths": {
-    "/atendimento/{id}": {
+    "/atendimento/123": {
       "get": {
         "tags": [
           "Atendimentos"
@@ -81,7 +81,7 @@
         }
       }
     },
-    "/atendimento": {
+    "atendimento": {
       "get": {
         "tags": [
           "Atendimentos"

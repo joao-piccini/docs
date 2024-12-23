@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Astrow Suite API",
-    "description": "Bem-vindo a documentação da API Astrow Suite!",
+    "title": "Opa Suite API",
+    "description": "Bem vindo a documentação da API Opa Suite!\n\nAbaixo você encontra todos nossos endpoints disponíveis até o momento e como utiliza-los.  \nTodos os endpoints necessitam autenticação, o token é gerado em seu sistema Opa Suite no cadastro de usuários, lembre-se de criar um perfil de permissões do tipo API.\n\nTodos os endpoints possuem um dominio e token genéricos a fins de exemplo, você deve subsituir pelo domínio do seu Opa Suite e o token pelo que você gerar.\n\nQualquer dúvida nosso time de suporte estará disponível para ajuda-lo.\n\nVamos lá?",
     "version": "1.0.0",
     "contact": {}
   },
@@ -12,7 +12,7 @@
     }
   ],
   "paths": {
-    "/api/v1/atendimento/123": {
+    "/api/v1/atendimento/629a65d61a34596fc382a4b0": {
       "get": {
         "tags": [
           "Atendimentos"

@@ -124,6 +124,29 @@
       "pages": [
         "api-reference/endpoint/notificacoes/enviar"
       ]
+    },
+    {
+      "group": "Departamentos",
+      "pages": [
+        "api-reference/endpoint/departamentos/criar",
+        "api-reference/endpoint/departamentos/editar",
+        "api-reference/endpoint/departamentos/listar",
+        "api-reference/endpoint/departamentos/buscar"
+      ]
+    },
+    {
+      "group": "Motivos",
+      "pages": [
+        "api-reference/endpoint/motivos/listar",
+        "api-reference/endpoint/motivos/buscar"
+      ]
+    },
+    {
+      "group": "Períodos",
+      "pages": [
+        "api-reference/endpoint/periodos/listar",
+        "api-reference/endpoint/periodos/buscar"
+      ]
     }
   ],
   "footerSocials": {

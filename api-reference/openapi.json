@@ -1602,7 +1602,7 @@
         }
       }
     },
-    "/departamento/": {
+    "/departamento": {
       "post": {
         "tags": [
           "Departamentos"
@@ -1711,7 +1711,7 @@
         }
       }
     },
-    "/departamento/625ac335dadd05f1bd084040": {
+    "/departamento/{id}": {
       "get": {
         "tags": [
           "Departamentos"
@@ -1865,7 +1865,7 @@
         }
       }
     },
-    "/atendimento/motivo/:id": {
+    "/atendimento/motivo/{id}": {
       "get": {
         "tags": [
           "Motivos"
@@ -1977,7 +1977,7 @@
         }
       }
     },
-    "/atendimento/periodo/:id": {
+    "/atendimento/periodo/{id}": {
       "get": {
         "tags": [
           "Períodos"

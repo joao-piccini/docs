@@ -27,46 +27,14 @@
           "200": {
             "description": "response",
             "content": {
-              "status": "success",
-              "code": 200,
-              "data": [
-                {
-                  "_id": "657c407f95a89d4dd802ca1c",
-                  "id_cliente": "646657ac0940d216c59e95ea",
-                  "id_user": "1532837c61b23cfec1d35918",
-                  "id_atendente": "5d1242134b16a50312cc8f43",
-                  "setor": "5bf13d1d126f7d2b0d647a61",
-                  "descricao": "",
-                  "status": "F",
-                  "canal": "page",
-                  "canal_id": "12a3a36ddcfd22baf4990e2f",
-                  "canal_cliente": "c1b22a37-fb6a-4875-bd3c-dae9735393c6",
-                  "protocolo": "OPA20232025",
-                  "tags": [],
-                  "avaliacoes": [],
-                  "observacoes": [],
-                  "date": "2023-12-15T12:03:11.406Z",
-                  "fim": "2023-12-15T19:11:02.391Z"
-                },
-                {
-                  "_id": "657ca4c795a89d4dd105ce04",
-                  "id_cliente": "646657ac0940d486c51e25ea",
-                  "id_user": "6539837c12b53cfec1d35918",
-                  "id_atendente": "1d1246ad4b16a50312cc8f4d",
-                  "setor": "1bf72d1d186f7d2b0d647a61",
-                  "descricao": "",
-                  "status": "F",
-                  "canal": "page",
-                  "canal_id": "62a3a24ddcfd29baf4120e2f",
-                  "canal_cliente": "c7b25a32-fb6a-4175-bd1c-dae9735393c6",
-                  "protocolo": "OPA20232016",
-                  "tags": [],
-                  "avaliacoes": [],
-                  "observacoes": [],
-                  "date": "2023-12-15T19:11:03.400Z",
-                  "fim": "2023-12-15T19:11:33.786Z"
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/pet"
+                  }
                 }
-              ]
+              }
             }
           },
           "400": {
@@ -194,6 +162,22 @@
   },
   "components": {
     "schemas": {
+      "Atendimento": {
+        "required": [],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array"
+          }
+        }
+      },
       "Error": {
         "required": [
           "error",
@@ -219,3 +203,44 @@
     }
   }
 }
+
+              <!-- "status": "success",
+              "code": 200,
+              "data": [
+                {
+                  "_id": "657c407f95a89d4dd802ca1c",
+                  "id_cliente": "646657ac0940d216c59e95ea",
+                  "id_user": "1532837c61b23cfec1d35918",
+                  "id_atendente": "5d1242134b16a50312cc8f43",
+                  "setor": "5bf13d1d126f7d2b0d647a61",
+                  "descricao": "",
+                  "status": "F",
+                  "canal": "page",
+                  "canal_id": "12a3a36ddcfd22baf4990e2f",
+                  "canal_cliente": "c1b22a37-fb6a-4875-bd3c-dae9735393c6",
+                  "protocolo": "OPA20232025",
+                  "tags": [],
+                  "avaliacoes": [],
+                  "observacoes": [],
+                  "date": "2023-12-15T12:03:11.406Z",
+                  "fim": "2023-12-15T19:11:02.391Z"
+                },
+                {
+                  "_id": "657ca4c795a89d4dd105ce04",
+                  "id_cliente": "646657ac0940d486c51e25ea",
+                  "id_user": "6539837c12b53cfec1d35918",
+                  "id_atendente": "1d1246ad4b16a50312cc8f4d",
+                  "setor": "1bf72d1d186f7d2b0d647a61",
+                  "descricao": "",
+                  "status": "F",
+                  "canal": "page",
+                  "canal_id": "62a3a24ddcfd29baf4120e2f",
+                  "canal_cliente": "c7b25a32-fb6a-4175-bd1c-dae9735393c6",
+                  "protocolo": "OPA20232016",
+                  "tags": [],
+                  "avaliacoes": [],
+                  "observacoes": [],
+                  "date": "2023-12-15T19:11:03.400Z",
+                  "fim": "2023-12-15T19:11:33.786Z"
+                }
+              ] -->

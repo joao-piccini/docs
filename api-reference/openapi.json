@@ -708,7 +708,7 @@
         }
       }
     },
-    "/template/625ac335dadd05f1bd084040": {
+    "/template/{id}": {
       "get": {
         "tags": [
           "Templates de mensagem"

@@ -102,7 +102,7 @@
         "api-reference/endpoint/usuarios/listar"
       ]
     },
-        {
+    {
       "group": "Contatos",
       "pages": [
         "api-reference/endpoint/contatos/criar",
@@ -110,6 +110,19 @@
         "api-reference/endpoint/contatos/listar",
         "api-reference/endpoint/contatos/buscar",
         "api-reference/endpoint/contatos/remover"
+      ]
+    },
+    {
+      "group": "Etiquetas",
+      "pages": [
+        "api-reference/endpoint/etiquetas/criar",
+        "api-reference/endpoint/etiquetas/listar"
+      ]
+    },
+    {
+      "group": "Notificações",
+      "pages": [
+        "api-reference/endpoint/notificacoes/enviar"
       ]
     }
   ],

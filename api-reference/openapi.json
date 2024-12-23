@@ -1445,7 +1445,7 @@
         }
       }
     },
-    "/etiqueta/": {
+    "/etiqueta": {
       "post": {
         "tags": [
           "Etiqueta"

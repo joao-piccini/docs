@@ -88,7 +88,7 @@
           "Atendimentos"
         ],
         "summary": "Listar atendimentos",
-        "description": "Endpoint responsável pela listagem dos atendimentos. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os atendimentos.\n\nAlém dos filtros você pode definir opções.\n\n**Filtros disponiveis**\n\n> `protocolo`  \n> `dataInicialAbertura`  \n> `dataFinalAbertura`\n> `dataInicialEncerramento`\n> `dataFinalEncerramento` \n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "description": "Endpoint responsável pela listagem dos atendimentos. Utilize parâmetros de consulta para aplicar filtros e opções de paginação.",
         "operationId": "getapiv1atendimento",
         "parameters": [
           {
@@ -99,11 +99,73 @@
             },
             "required": true,
             "example": "Bearer MEUTOKEN"
+          },
+          {
+            "name": "protocolo",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filtro pelo protocolo do atendimento"
+          },
+          {
+            "name": "dataInicialAbertura",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Filtro pela data inicial de abertura do atendimento"
+          },
+          {
+            "name": "dataFinalAbertura",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Filtro pela data final de abertura do atendimento"
+          },
+          {
+            "name": "dataInicialEncerramento",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Filtro pela data inicial de encerramento do atendimento"
+          },
+          {
+            "name": "dataFinalEncerramento",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Filtro pela data final de encerramento do atendimento"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            },
+            "description": "Quantidade de registros a pular (paginação)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            },
+            "description": "Limite máximo de registros para exibir"
           }
         ],
         "responses": {
           "200": {
-            "description": "Listar atendimentos",
+            "description": "Lista de atendimentos",
             "content": {
               "application/json": {
                 "schema": {

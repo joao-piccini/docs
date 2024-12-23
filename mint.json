@@ -57,8 +57,24 @@
     {
       "group": "Atendimentos",
       "pages": [
-        "api-reference/endpoint/atendimentos/buscar",
-        "api-reference/endpoint/atendimentos/listar"
+        "api-reference/endpoint/atendimentos/listar",
+        "api-reference/endpoint/atendimentos/buscar"
+      ]
+    },
+    {
+      "group": "Mensagens",
+      "pages": [
+        "api-reference/endpoint/mensagens/listar",
+        "api-reference/endpoint/mensagens/buscar"
+      ]
+    },
+    {
+      "group": "Canais de comunicação",
+      "pages": [
+      "api-reference/endpoint/canais/listar",
+      "api-reference/endpoint/canais/buscar_canal",
+      "api-reference/endpoint/canais/buscar_templates",
+      "api-reference/endpoint/canais/buscar_limites"
       ]
     }
   ],

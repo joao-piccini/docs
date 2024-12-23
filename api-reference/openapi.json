@@ -319,7 +319,7 @@
         }
       }
     },
-    "/atendimento/mensagem/5d1642434b16a50312cc8f43": {
+    "/atendimento/mensagem/{id}": {
       "get": {
         "tags": [
           "Mensagens"

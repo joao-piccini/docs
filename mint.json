@@ -47,14 +47,6 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
-    },
-    {
       "group": "Documentação",
       "pages": [
         "introduction",

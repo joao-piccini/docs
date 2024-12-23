@@ -12,7 +12,7 @@
     }
   ],
   "paths": {
-    "atendimento/{id}": {
+    "/atendimento/{id}": {
       "get": {
         "tags": [
           "Atendimentos"
@@ -81,7 +81,7 @@
         }
       }
     },
-    "atendimento": {
+    "/atendimento": {
       "get": {
         "tags": [
           "Atendimentos"
@@ -155,7 +155,7 @@
         }
       }
     },
-    "atendimento/mensagem": {
+    "/atendimento/mensagem": {
       "get": {
         "tags": [
           "Mensagens"
@@ -319,7 +319,7 @@
         }
       }
     },
-    "atendimento/mensagem/5d1642434b16a50312cc8f43": {
+    "/atendimento/mensagem/{id}": {
       "get": {
         "tags": [
           "Mensagens"
@@ -461,7 +461,7 @@
         }
       }
     },
-    "canal-comunicacao/": {
+    "/canal-comunicacao": {
       "get": {
         "tags": [
           "Canais de comunicação"
@@ -508,7 +508,7 @@
         }
       }
     },
-    "canal-comunicacao/212b435c1cc6221ac1zf125a": {
+    "/canal-comunicacao/{id}": {
       "get": {
         "tags": [
           "Canais de comunicação"
@@ -557,7 +557,7 @@
         }
       }
     },
-    "canal-comunicacao/{id}/template": {
+    "/canal-comunicacao/{id}/template": {
       "get": {
         "tags": [
           "Canais de comunicação"
@@ -611,7 +611,7 @@
         }
       }
     },
-    "canal-comunicacao/{id}/template/limites-diarios-envio": {
+    "/canal-comunicacao/{id}/template/limites-diarios-envio": {
       "get": {
         "tags": [
           "Canais de comunicação"

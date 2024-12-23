@@ -76,7 +76,23 @@
       "api-reference/endpoint/canais/buscar_templates",
       "api-reference/endpoint/canais/buscar_limites"
       ]
-    }
+    },
+    {
+      "group": "Templates de mensagem",
+      "pages": [
+      "api-reference/endpoint/templates/listar",
+      "api-reference/endpoint/templates/buscar",
+      "api-reference/endpoint/templates/enviar"
+      ]
+    },
+    {
+      "group": "Clientes",
+      "pages": [
+      "api-reference/endpoint/cliente/listar",
+      "api-reference/endpoint/cliente/buscar",
+      "api-reference/endpoint/cliente/enviar"
+      ]
+    },
   ],
   "footerSocials": {
     "website": "https://astrow.com.br",

@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "OpenAPI Suite",
-    "description": "A sample API example to demonstrate features in the OpenAPI specification",
+    "description": "A sample API example to demonstrate features",
     "license": {
       "name": "MIT"
     },

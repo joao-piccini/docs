@@ -721,10 +721,10 @@
             "name": "Authorization",
             "in": "header",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "Bearer MEUTOKEN"
             },
-            "required": true,
-            "example": "Bearer MEUTOKEN"
+            "required": true
           }
         ],
         "responses": {

@@ -1128,7 +1128,7 @@
         }
       }
     },
-    "/usuario/": {
+    "/usuario": {
       "get": {
         "tags": [
           "Usuário"

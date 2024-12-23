@@ -71,29 +71,35 @@
     {
       "group": "Canais de comunicação",
       "pages": [
-      "api-reference/endpoint/canais/listar",
-      "api-reference/endpoint/canais/buscar_canal",
-      "api-reference/endpoint/canais/buscar_templates",
-      "api-reference/endpoint/canais/buscar_limites"
+        "api-reference/endpoint/canais/listar",
+        "api-reference/endpoint/canais/buscar_canal",
+        "api-reference/endpoint/canais/buscar_templates",
+        "api-reference/endpoint/canais/buscar_limites"
       ]
     },
     {
       "group": "Templates de mensagem",
       "pages": [
-      "api-reference/endpoint/templates/listar",
-      "api-reference/endpoint/templates/buscar",
-      "api-reference/endpoint/templates/enviar"
+        "api-reference/endpoint/templates/listar",
+        "api-reference/endpoint/templates/buscar",
+        "api-reference/endpoint/templates/enviar"
       ]
     },
     {
       "group": "Clientes",
       "pages": [
-      "api-reference/endpoint/clientes/criar",
-      "api-reference/endpoint/clientes/editar_put",
-      "api-reference/endpoint/clientes/editar_patch",
-      "api-reference/endpoint/clientes/listar",
-      "api-reference/endpoint/clientes/buscar",
-      "api-reference/endpoint/clientes/remover"
+        "api-reference/endpoint/clientes/criar",
+        "api-reference/endpoint/clientes/editar_put",
+        "api-reference/endpoint/clientes/editar_patch",
+        "api-reference/endpoint/clientes/listar",
+        "api-reference/endpoint/clientes/buscar",
+        "api-reference/endpoint/clientes/remover"
+      ]
+    },
+    {
+      "group": "Usuários",
+      "pages": [
+        "api-reference/endpoint/usuarios/listar"
       ]
     }
   ],

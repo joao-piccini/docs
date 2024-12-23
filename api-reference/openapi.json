@@ -8,7 +8,7 @@
   },
   "servers": [
     {
-      "url": "https://postman-echo.com"
+      "url": "https://meusuite.astrow.com.br/api/v1"
     }
   ],
   "paths": {
@@ -27,6 +27,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -96,6 +97,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -170,6 +172,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -334,6 +337,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -476,6 +480,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -523,6 +528,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -572,6 +578,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -626,6 +633,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -667,6 +675,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -714,6 +723,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -763,6 +773,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -827,6 +838,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -887,6 +899,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -936,6 +949,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -992,6 +1006,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1042,6 +1057,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1087,6 +1103,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1126,6 +1143,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1170,6 +1188,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1227,6 +1246,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1287,6 +1307,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1342,6 +1363,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1398,6 +1420,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1437,6 +1460,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1489,6 +1513,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1532,6 +1557,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1591,6 +1617,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1643,6 +1670,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1698,6 +1726,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1749,6 +1778,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1804,6 +1834,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1857,6 +1888,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1900,6 +1932,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],
@@ -1967,6 +2000,7 @@
             "schema": {
               "type": "string"
             },
+            "required": true,
             "example": "Bearer MEUTOKEN"
           }
         ],

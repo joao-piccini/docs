@@ -82,8 +82,8 @@
         }
       }
     },
-    "/atendimentos": {
-      "buscar": {
+    "/atendimento/{id}": {
+      "get": {
         "description": "Retorna um único registro filtrado pelo ID inserido na URL, caso exista algum campo de relacionamento este campo virá populado com as informações invés de somente o ID",
         "parameters": [
           {

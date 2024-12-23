@@ -155,7 +155,7 @@
         }
       }
     },
-    "/atendimento/mensagem": {
+    "atendimento/mensagem": {
       "get": {
         "tags": [
           "Mensagens"
@@ -319,7 +319,7 @@
         }
       }
     },
-    "/atendimento/mensagem/{id}": {
+    "atendimento/mensagem/{id}": {
       "get": {
         "tags": [
           "Mensagens"

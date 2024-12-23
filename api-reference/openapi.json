@@ -22,17 +22,7 @@
     "/atendimento": {
       "get": {
         "description": "Retorna um array de atendimentos conforme os filtros utilizados. Caso nenhum filtro seja passado o resultado trará todos os atendimentos.",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "response",
@@ -80,7 +70,7 @@
             }
           },
           "400": {
-            "description": "Unexpected error",
+            "description": "unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -92,8 +82,8 @@
         }
       }
     },
-    "/atendimento/{id}": {
-      "get": {
+    "/atendimentos": {
+      "buscar": {
         "description": "Retorna um único registro filtrado pelo ID inserido na URL, caso exista algum campo de relacionamento este campo virá populado com as informações invés de somente o ID",
         "parameters": [
           {
@@ -145,7 +135,7 @@
               "type": "string",
               "format": "string"
             }
-          },
+          }
         ],
         "responses": {
           "200": {

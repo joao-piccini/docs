@@ -88,9 +88,12 @@
     {
       "group": "Clientes",
       "pages": [
+      "api-reference/endpoint/cliente/criar",
+      "api-reference/endpoint/cliente/editar_put",
+      "api-reference/endpoint/cliente/editar_patch",
       "api-reference/endpoint/cliente/listar",
       "api-reference/endpoint/cliente/buscar",
-      "api-reference/endpoint/cliente/enviar"
+      "api-reference/endpoint/cliente/remover"
       ]
     }
   ],

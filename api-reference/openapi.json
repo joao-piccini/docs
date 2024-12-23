@@ -64,7 +64,7 @@
                       "canal": "page",
                       "canal_id": "12a3a31ddcfd29baf4990e2f",
                       "canal_cliente": "c2b22a37-fb2a-4875-bd3c-dae9735393c6",
-                      "protocolo": "OPA20232017",
+                      "protocolo": "AST20232017",
                       "tags": [],
                       "avaliacoes": [],
                       "observacoes": [],
@@ -123,7 +123,7 @@
                         "canal": "page",
                         "canal_id": "12a3a36ddcfd22baf4990e2f",
                         "canal_cliente": "c1b22a37-fb6a-4875-bd3c-dae9735393c6",
-                        "protocolo": "OPA20232025",
+                        "protocolo": "AST20232025",
                         "tags": [],
                         "avaliacoes": [],
                         "observacoes": [],
@@ -141,7 +141,7 @@
                         "canal": "page",
                         "canal_id": "62a3a24ddcfd29baf4120e2f",
                         "canal_cliente": "c7b25a32-fb6a-4175-bd1c-dae9735393c6",
-                        "protocolo": "OPA20232016",
+                        "protocolo": "AST20232016",
                         "tags": [],
                         "avaliacoes": [],
                         "observacoes": [],
@@ -191,7 +191,7 @@
                         "_id": "657ca4c795a89d4dd806ce11",
                         "id_rota": "62a8c296cba8621f428b50d5",
                         "id_atend": "5d1642ad4b16a50312cc8f4d",
-                        "mensagem": "Protocolo OPA20232006",
+                        "mensagem": "Protocolo AST20232006",
                         "tipo": "",
                         "objeto": null,
                         "chamada": null,
@@ -365,7 +365,7 @@
                         "canal": "page",
                         "canal_id": "62a3a36ddcfd29baf4990e2f",
                         "canal_cliente": "c7b25a37-fb6a-4875-bd3c-dae9735393c6",
-                        "protocolo": "OPA20232006",
+                        "protocolo": "AST20232006",
                         "tags": [],
                         "usuarios_acompanhar": [],
                         "atendentes": [
@@ -441,7 +441,7 @@
                           "mensagem": "Atendimento encerrado por inatividade"
                         }
                       },
-                      "mensagem": "Protocolo OPA20232006",
+                      "mensagem": "Protocolo AST20232006",
                       "tipo": "",
                       "objeto": null,
                       "chamada": null,
@@ -721,10 +721,10 @@
             "name": "Authorization",
             "in": "header",
             "schema": {
-              "type": "string",
-              "example": "Bearer MEUTOKEN"
+              "type": "string"
             },
-            "required": true
+            "required": true,
+            "example": "Bearer MEUTOKEN"
           }
         ],
         "responses": {
@@ -823,7 +823,7 @@
         }
       }
     },
-    "/cliente/": {
+    "/cliente": {
       "post": {
         "tags": [
           "Cliente"
@@ -934,7 +934,7 @@
         }
       }
     },
-    "/cliente/625ac335dadd05f1bd084040": {
+    "/cliente/{id}": {
       "put": {
         "tags": [
           "Cliente"

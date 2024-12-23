@@ -101,6 +101,16 @@
       "pages": [
         "api-reference/endpoint/usuarios/listar"
       ]
+    },
+        {
+      "group": "Contatos",
+      "pages": [
+        "api-reference/endpoint/contatos/criar",
+        "api-reference/endpoint/contatos/editar",
+        "api-reference/endpoint/contatos/listar",
+        "api-reference/endpoint/contatos/buscar",
+        "api-reference/endpoint/contatos/remover"
+      ]
     }
   ],
   "footerSocials": {

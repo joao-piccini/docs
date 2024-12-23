@@ -1173,7 +1173,7 @@
         }
       }
     },
-    "/contato/": {
+    "/contato": {
       "post": {
         "tags": [
           "Contatos"
@@ -1292,7 +1292,7 @@
         }
       }
     },
-    "/contato/625ac335dadd05f1bd084040": {
+    "/contato/{id}": {
       "put": {
         "tags": [
           "Contatos"

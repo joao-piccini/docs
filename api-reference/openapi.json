@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Opa Suite API",
-    "description": "Bem vindo a documentação da API Opa Suite!\n\nAbaixo você encontra todos nossos endpoints disponíveis até o momento e como utiliza-los.  \nTodos os endpoints necessitam autenticação, o token é gerado em seu sistema Opa Suite no cadastro de usuários, lembre-se de criar um perfil de permissões do tipo API.\n\nTodos os endpoints possuem um dominio e token genéricos a fins de exemplo, você deve subsituir pelo domínio do seu Opa Suite e o token pelo que você gerar.\n\nQualquer dúvida nosso time de suporte estará disponível para ajuda-lo.\n\nVamos lá?",
+    "title": "Astrow Suite API",
+    "description": "Bem-vindo a documentação da API Astrow Suite!",
     "version": "1.0.0",
     "contact": {}
   },
@@ -12,7 +12,7 @@
     }
   ],
   "paths": {
-    "/api/v1/atendimento/629a65d61a34596fc382a4b0": {
+    "atendimento/{id}": {
       "get": {
         "tags": [
           "Atendimentos"
@@ -63,7 +63,7 @@
                       "canal": "page",
                       "canal_id": "12a3a31ddcfd29baf4990e2f",
                       "canal_cliente": "c2b22a37-fb2a-4875-bd3c-dae9735393c6",
-                      "protocolo": "OPA20232017",
+                      "protocolo": "AST20232017",
                       "tags": [],
                       "avaliacoes": [],
                       "observacoes": [],
@@ -81,7 +81,7 @@
         }
       }
     },
-    "/api/v1/atendimento": {
+    "atendimento": {
       "get": {
         "tags": [
           "Atendimentos"
@@ -121,7 +121,7 @@
                         "canal": "page",
                         "canal_id": "12a3a36ddcfd22baf4990e2f",
                         "canal_cliente": "c1b22a37-fb6a-4875-bd3c-dae9735393c6",
-                        "protocolo": "OPA20232025",
+                        "protocolo": "AST20232025",
                         "tags": [],
                         "avaliacoes": [],
                         "observacoes": [],
@@ -139,7 +139,7 @@
                         "canal": "page",
                         "canal_id": "62a3a24ddcfd29baf4120e2f",
                         "canal_cliente": "c7b25a32-fb6a-4175-bd1c-dae9735393c6",
-                        "protocolo": "OPA20232016",
+                        "protocolo": "AST20232016",
                         "tags": [],
                         "avaliacoes": [],
                         "observacoes": [],
@@ -155,7 +155,7 @@
         }
       }
     },
-    "/api/v1/atendimento/mensagem": {
+    "atendimento/mensagem": {
       "get": {
         "tags": [
           "Mensagens"
@@ -188,7 +188,7 @@
                         "_id": "657ca4c795a89d4dd806ce11",
                         "id_rota": "62a8c296cba8621f428b50d5",
                         "id_atend": "5d1642ad4b16a50312cc8f4d",
-                        "mensagem": "Protocolo OPA20232006",
+                        "mensagem": "Protocolo AST20232006",
                         "tipo": "",
                         "objeto": null,
                         "chamada": null,
@@ -319,7 +319,7 @@
         }
       }
     },
-    "/api/v1/atendimento/mensagem/5d1642434b16a50312cc8f43": {
+    "atendimento/mensagem/5d1642434b16a50312cc8f43": {
       "get": {
         "tags": [
           "Mensagens"
@@ -361,7 +361,7 @@
                         "canal": "page",
                         "canal_id": "62a3a36ddcfd29baf4990e2f",
                         "canal_cliente": "c7b25a37-fb6a-4875-bd3c-dae9735393c6",
-                        "protocolo": "OPA20232006",
+                        "protocolo": "AST20232006",
                         "tags": [],
                         "usuarios_acompanhar": [],
                         "atendentes": [
@@ -437,7 +437,7 @@
                           "mensagem": "Atendimento encerrado por inatividade"
                         }
                       },
-                      "mensagem": "Protocolo OPA20232006",
+                      "mensagem": "Protocolo AST20232006",
                       "tipo": "",
                       "objeto": null,
                       "chamada": null,
@@ -461,7 +461,7 @@
         }
       }
     },
-    "/api/v1/canal-comunicacao/": {
+    "canal-comunicacao/": {
       "get": {
         "tags": [
           "Canais de comunicação"
@@ -508,7 +508,7 @@
         }
       }
     },
-    "/api/v1/canal-comunicacao/212b435c1cc6221ac1zf125a": {
+    "canal-comunicacao/212b435c1cc6221ac1zf125a": {
       "get": {
         "tags": [
           "Canais de comunicação"
@@ -557,7 +557,7 @@
         }
       }
     },
-    "/api/v1/canal-comunicacao/625ac335dadd05f1bd084040/template": {
+    "canal-comunicacao/{id}/template": {
       "get": {
         "tags": [
           "Canais de comunicação"
@@ -611,7 +611,7 @@
         }
       }
     },
-    "/api/v1/canal-comunicacao/625ac335dadd05f1bd084040/template/limites-diarios-envio": {
+    "canal-comunicacao/{id}/template/limites-diarios-envio": {
       "get": {
         "tags": [
           "Canais de comunicação"
@@ -652,7 +652,7 @@
         }
       }
     },
-    "/api/v1/template": {
+    "template": {
       "get": {
         "tags": [
           "Templates de mensagem"
@@ -699,7 +699,7 @@
         }
       }
     },
-    "/api/v1/template/625ac335dadd05f1bd084040": {
+    "template/{id}": {
       "get": {
         "tags": [
           "Templates de mensagem"
@@ -748,7 +748,7 @@
         }
       }
     },
-    "/api/v1/template/send": {
+    "template/send": {
       "post": {
         "tags": [
           "Templates de mensagem"
@@ -812,7 +812,7 @@
         }
       }
     },
-    "/api/v1/cliente/": {
+    "cliente/": {
       "post": {
         "tags": [
           "Cliente"
@@ -921,7 +921,7 @@
         }
       }
     },
-    "/api/v1/cliente/625ac335dadd05f1bd084040": {
+    "cliente/{id}": {
       "put": {
         "tags": [
           "Cliente"
@@ -1111,7 +1111,7 @@
         }
       }
     },
-    "/api/v1/usuario/": {
+    "usuario/": {
       "get": {
         "tags": [
           "Usuário"
@@ -1155,7 +1155,7 @@
         }
       }
     },
-    "/api/v1/contato/": {
+    "contato/": {
       "post": {
         "tags": [
           "Contatos"
@@ -1272,7 +1272,7 @@
         }
       }
     },
-    "/api/v1/contato/625ac335dadd05f1bd084040": {
+    "contato/{id}": {
       "put": {
         "tags": [
           "Contatos"
@@ -1422,7 +1422,7 @@
         }
       }
     },
-    "/api/v1/etiqueta/": {
+    "etiqueta/": {
       "post": {
         "tags": [
           "Etiqueta"
@@ -1517,7 +1517,7 @@
         }
       }
     },
-    "/api/v1/notificacao/send": {
+    "notificacao/send": {
       "post": {
         "tags": [
           "Notificação"
@@ -1576,7 +1576,7 @@
         }
       }
     },
-    "/api/v1/departamento/": {
+    "departamento/": {
       "post": {
         "tags": [
           "Departamentos"
@@ -1683,7 +1683,7 @@
         }
       }
     },
-    "/api/v1/departamento/625ac335dadd05f1bd084040": {
+    "departamento/{id}": {
       "get": {
         "tags": [
           "Departamentos"
@@ -1789,7 +1789,7 @@
         }
       }
     },
-    "/api/v1/atendimento/motivo": {
+    "atendimento/motivo": {
       "get": {
         "tags": [
           "Motivos"
@@ -1834,7 +1834,7 @@
         }
       }
     },
-    "/api/v1/atendimento/motivo/:id": {
+    "atendimento/motivo/:id": {
       "get": {
         "tags": [
           "Motivos"
@@ -1885,7 +1885,7 @@
         }
       }
     },
-    "/api/v1/atendimento/periodo": {
+    "atendimento/periodo": {
       "get": {
         "tags": [
           "Períodos"
@@ -1944,7 +1944,7 @@
         }
       }
     },
-    "/api/v1/atendimento/periodo/:id": {
+    "atendimento/periodo/:id": {
       "get": {
         "tags": [
           "Períodos"

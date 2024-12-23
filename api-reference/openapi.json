@@ -1,48 +1,79 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.3",
   "info": {
-    "title": "OpenAPI Suite",
-    "description": "A sample API example to demonstrate features",
-    "license": {
-      "name": "MIT"
-    },
-    "version": "1.0.0"
+    "title": "Opa Suite API",
+    "description": "Bem vindo a documentação da API Opa Suite!\n\nAbaixo você encontra todos nossos endpoints disponíveis até o momento e como utiliza-los.  \nTodos os endpoints necessitam autenticação, o token é gerado em seu sistema Opa Suite no cadastro de usuários, lembre-se de criar um perfil de permissões do tipo API.\n\nTodos os endpoints possuem um dominio e token genéricos a fins de exemplo, você deve subsituir pelo domínio do seu Opa Suite e o token pelo que você gerar.\n\nQualquer dúvida nosso time de suporte estará disponível para ajuda-lo.\n\nVamos lá?",
+    "version": "1.0.0",
+    "contact": {}
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
-    }
-  ],
-  "security": [
-    {
-      "bearerAuth": []
+      "url": "https://postman-echo.com"
     }
   ],
   "paths": {
-    "/atendimento": {
+    "/api/v1/atendimento/629a65d61a34596fc382a4b0": {
       "get": {
-        "description": "Retorna um array de atendimentos conforme os filtros utilizados. Caso nenhum filtro seja passado o resultado trará todos os atendimentos.",
-        "parameters": [],
+        "tags": [
+          "Atendimentos"
+        ],
+        "summary": "Buscar atendimento populado",
+        "description": "Endpoint responsável por trazer um único registro filtrado pelo ID inserido na URL.  \nCaso exista algum campo de relacionamento este campo virá populado com as informações invés de somente o ID.",
+        "operationId": "getapiv1atendimento629a65d61a34596fc382a4b0",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Buscar atendimento populado",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Atendimento"
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "657ca4f695a89a4dd206ce5f",
+                      "id_cliente": {
+                        "_id": "646657xc0930d496c59e95ea",
+                        "nome": "João Santos",
+                        "cpf_cnpj": "56982161005",
+                        "status": "A"
+                      },
+                      "id_user": {
+                        "_id": "6539237c61b13cfec1d33151",
+                        "nome": ""
+                      },
+                      "id_atendente": {
+                        "_id": "5d1642434b16a50312cc8f43",
+                        "nome": "Lucas Silva",
+                        "genero": ""
+                      },
+                      "setor": "2bf43d1d186f7d2b0d647a11",
+                      "descricao": "",
+                      "status": "EA",
+                      "canal": "page",
+                      "canal_id": "12a3a31ddcfd29baf4990e2f",
+                      "canal_cliente": "c2b22a37-fb2a-4875-bd3c-dae9735393c6",
+                      "protocolo": "OPA20232017",
+                      "tags": [],
+                      "avaliacoes": [],
+                      "observacoes": [],
+                      "date": "2023-12-15T19:11:50.657Z",
+                      "id_motivo_atendimento": {
+                        "_id": "6414e3fffa1d42155e666b76",
+                        "motivo": "Atendimento teste"
+                      }
+                    }
                   }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -50,108 +81,1927 @@
         }
       }
     },
-    "/atendimento/{id}": {
+    "/api/v1/atendimento": {
       "get": {
-        "description": "Retorna um único registro filtrado pelo ID inserido na URL, caso exista algum campo de relacionamento este campo virá populado com as informações invés de somente o ID",
+        "tags": [
+          "Atendimentos"
+        ],
+        "summary": "Listar atendimentos",
+        "description": "Endpoint responsável pela listagem dos atendimentos. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os atendimentos.\n\nAlém dos filtros você pode definir opções.\n\n**Filtros disponiveis**\n\n> `protocolo`  \n> `dataInicialAbertura`  \n> `dataFinalAbertura`\n> `dataInicialEncerramento`\n> `dataFinalEncerramento` \n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1atendimento",
         "parameters": [
           {
-            "name": "protocolo",
-            "in": "body",
-            "description": "Protocolo do atendimento",
-            "required": false,
+            "name": "Authorization",
+            "in": "header",
             "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          {
-            "name": "dataInicialAbertura",
-            "in": "body",
-            "description": "Data inicial de abertura do atendimento (AAAA-MM-DD)",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          {
-            "name": "dataFinalAbertura",
-            "in": "body",
-            "description": "Data final de abertura do atendimento (AAAA-MM-DD)",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          {
-            "name": "dataInicialEncerramento",
-            "in": "body",
-            "description": "Data inicial de encerramento do atendimento (AAAA-MM-DD)",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
-          },
-          {
-            "name": "dataFinalEncerramento",
-            "in": "body",
-            "description": "Data final de encerramento do atendimento (AAAA-MM-DD)",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
           }
         ],
         "responses": {
           "200": {
-            "description": "success",
-            "content": {
-              "status": "success",
-              "code": 200,
-              "data": {
-                "_id": "657ca4f695a89a4dd206ce5f",
-                "id_cliente": {
-                  "_id": "646657xc0930d496c59e95ea",
-                  "nome": "João Santos",
-                  "cpf_cnpj": "56982161005",
-                  "status": "A"
-                },
-                "id_user": {
-                  "_id": "6539237c61b13cfec1d33151",
-                  "nome": ""
-                },
-                "id_atendente": {
-                  "_id": "5d1642434b16a50312cc8f43",
-                  "nome": "Lucas Silva",
-                  "genero": ""
-                },
-                "setor": "2bf43d1d186f7d2b0d647a11",
-                "descricao": "",
-                "status": "EA",
-                "canal": "page",
-                "canal_id": "12a3a31ddcfd29baf4990e2f",
-                "canal_cliente": "c2b22a37-fb2a-4875-bd3c-dae9735393c6",
-                "protocolo": "OPA20232017",
-                "tags": [],
-                "avaliacoes": [],
-                "observacoes": [],
-                "date": "2023-12-15T19:11:50.657Z",
-                "id_motivo_atendimento": {
-                  "_id": "6414e3fffa1d42155e666b76",
-                  "motivo": "Atendimento teste"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
+            "description": "Listar atendimentos",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "657c407f95a89d4dd802ca1c",
+                        "id_cliente": "646657ac0940d216c59e95ea",
+                        "id_user": "1532837c61b23cfec1d35918",
+                        "id_atendente": "5d1242134b16a50312cc8f43",
+                        "setor": "5bf13d1d126f7d2b0d647a61",
+                        "descricao": "",
+                        "status": "F",
+                        "canal": "page",
+                        "canal_id": "12a3a36ddcfd22baf4990e2f",
+                        "canal_cliente": "c1b22a37-fb6a-4875-bd3c-dae9735393c6",
+                        "protocolo": "OPA20232025",
+                        "tags": [],
+                        "avaliacoes": [],
+                        "observacoes": [],
+                        "date": "2023-12-15T12:03:11.406Z",
+                        "fim": "2023-12-15T19:11:02.391Z"
+                      },
+                      {
+                        "_id": "657ca4c795a89d4dd105ce04",
+                        "id_cliente": "646657ac0940d486c51e25ea",
+                        "id_user": "6539837c12b53cfec1d35918",
+                        "id_atendente": "1d1246ad4b16a50312cc8f4d",
+                        "setor": "1bf72d1d186f7d2b0d647a61",
+                        "descricao": "",
+                        "status": "F",
+                        "canal": "page",
+                        "canal_id": "62a3a24ddcfd29baf4120e2f",
+                        "canal_cliente": "c7b25a32-fb6a-4175-bd1c-dae9735393c6",
+                        "protocolo": "OPA20232016",
+                        "tags": [],
+                        "avaliacoes": [],
+                        "observacoes": [],
+                        "date": "2023-12-15T19:11:03.400Z",
+                        "fim": "2023-12-15T19:11:33.786Z"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/atendimento/mensagem": {
+      "get": {
+        "tags": [
+          "Mensagens"
+        ],
+        "summary": "Listar mensagens atendimento",
+        "description": "Endpoint responsável pela listagem das mensagens do atendimento. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todas as mensagens.\n\nAlém dos filtros você pode definir opções.\n\n**Filtros disponiveis**\n\n> `id_rota` \n  \n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1atendimentomensagem",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listar mensagens atendimento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "657ca4c795a89d4dd806ce11",
+                        "id_rota": "62a8c296cba8621f428b50d5",
+                        "id_atend": "5d1642ad4b16a50312cc8f4d",
+                        "mensagem": "Protocolo OPA20232006",
+                        "tipo": "",
+                        "objeto": null,
+                        "chamada": null,
+                        "canalComunicacao": "62a3a36ddcfd29baf4990e2f",
+                        "destinatario": "6539837c61b23cfec1d35918",
+                        "tipoDestinatario": "clientes_users",
+                        "statusEnvio": {
+                          "status": "",
+                          "observacao": ""
+                        },
+                        "data": "2023-12-15T19:11:03.488Z",
+                        "createdAt": "2023-12-15T19:11:03.490Z",
+                        "updatedAt": "2023-12-15T19:11:03.490Z",
+                        "__v": 0
+                      },
+                      {
+                        "_id": "657ca4c795a89d4dd806ce14",
+                        "id_rota": "62a8c296cba8621f428b50d5",
+                        "id_user": "6539837c61b23cfec1d35918",
+                        "mensagem": "Teste",
+                        "tipo": "texto",
+                        "objeto": null,
+                        "chamada": null,
+                        "canalComunicacao": "62a3a36ddcfd29baf4990e2f",
+                        "destinatario": "5d1642ad4b16a50312cc8f4d",
+                        "tipoDestinatario": "usuarios",
+                        "id_mensagem_citada": null,
+                        "idMensagemCanal": null,
+                        "statusEnvio": {
+                          "status": "",
+                          "observacao": ""
+                        },
+                        "data": "2023-12-15T19:11:03.548Z",
+                        "createdAt": "2023-12-15T19:11:03.554Z",
+                        "updatedAt": "2023-12-15T19:11:03.554Z",
+                        "__v": 0
+                      },
+                      {
+                        "_id": "657ca4c895a89d4dd806ce19",
+                        "id_rota": "62a8c296cba8621f428b50d5",
+                        "id_atend": "5d1642ad4b16a50312cc8f4d",
+                        "mensagem": {
+                          "titulo": "Menu escolha",
+                          "opcoes": [
+                            {
+                              "id": "1",
+                              "texto": "Escolha 1",
+                              "descricao": ""
+                            },
+                            {
+                              "id": "2",
+                              "texto": "Escolha 2",
+                              "descricao": ""
+                            },
+                            {
+                              "id": "3",
+                              "texto": "Escolha 3",
+                              "descricao": ""
+                            },
+                            {
+                              "id": "4",
+                              "texto": "Escolha 4",
+                              "descricao": ""
+                            }
+                          ]
+                        },
+                        "tipo": "menuInterativo",
+                        "objeto": null,
+                        "chamada": null,
+                        "canalComunicacao": "62a3a36ddcfd29baf4990e2f",
+                        "destinatario": "6539837c61b23cfec1d35918",
+                        "tipoDestinatario": "clientes_users",
+                        "statusEnvio": {
+                          "status": "sent",
+                          "observacao": ""
+                        },
+                        "data": "2023-12-15T19:11:04.787Z",
+                        "createdAt": "2023-12-15T19:11:04.789Z",
+                        "updatedAt": "2023-12-15T19:11:04.809Z",
+                        "__v": 0
+                      },
+                      {
+                        "_id": "657ca4e595a89d4dd806ce27",
+                        "id_rota": "62a8c296cba8621f428b50d5",
+                        "id_atend": "5d1642ad4b16a50312cc8f4d",
+                        "mensagem": "Mensagem de teste dali",
+                        "tipo": "",
+                        "objeto": null,
+                        "chamada": null,
+                        "canalComunicacao": "62a3a36ddcfd29baf4990e2f",
+                        "destinatario": "6539837c61b23cfec1d35918",
+                        "tipoDestinatario": "clientes_users",
+                        "statusEnvio": {
+                          "status": "sent",
+                          "observacao": ""
+                        },
+                        "data": "2023-12-15T19:11:33.717Z",
+                        "createdAt": "2023-12-15T19:11:33.719Z",
+                        "updatedAt": "2023-12-15T19:11:33.752Z",
+                        "__v": 0
+                      },
+                      {
+                        "_id": "657ca4e595a89d4dd806ce41",
+                        "id_rota": "62a8c296cba8621f428b50d5",
+                        "id_atend": "5d1642ad4b16a50312cc8f4d",
+                        "mensagem": "Mensagem de teste daqui",
+                        "tipo": "",
+                        "objeto": null,
+                        "chamada": null,
+                        "canalComunicacao": "62a3a36ddcfd29baf4990e2f",
+                        "destinatario": "6539837c61b23cfec1d35918",
+                        "tipoDestinatario": "clientes_users",
+                        "statusEnvio": {
+                          "status": "",
+                          "observacao": ""
+                        },
+                        "data": "2023-12-15T19:11:33.845Z",
+                        "createdAt": "2023-12-15T19:11:33.850Z",
+                        "updatedAt": "2023-12-15T19:11:33.850Z",
+                        "__v": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/atendimento/mensagem/5d1642434b16a50312cc8f43": {
+      "get": {
+        "tags": [
+          "Mensagens"
+        ],
+        "summary": "Buscar mensagem atendimento pupulada",
+        "description": "Endpoint responsável por trazer um único registro filtrado pelo ID inserido na URL.  \nCaso exista algum campo de relacionamento este campo virá populado com as informações invés de somente o ID.",
+        "operationId": "getapiv1atendimentomensagem5d1642434b16a50312cc8f43",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Buscar mensagem atendimento pupulada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "5d1642434b16a50312cc8f43",
+                      "id_rota": {
+                        "_id": "657ca4c795a89d4dd806ce04",
+                        "id_cliente": "646657ac0940d486c59e95ea",
+                        "id_user": "6539837c61b23cfec1d35918",
+                        "id_atendente": "5d1642ad4b16a50312cc8f4d",
+                        "abertoPor": "contato",
+                        "setor": "5bf73d1d186f7d2b0d647a61",
+                        "descricao": "",
+                        "status": "F",
+                        "canal": "page",
+                        "canal_id": "62a3a36ddcfd29baf4990e2f",
+                        "canal_cliente": "c7b25a37-fb6a-4875-bd3c-dae9735393c6",
+                        "protocolo": "OPA20232006",
+                        "tags": [],
+                        "usuarios_acompanhar": [],
+                        "atendentes": [
+                          {
+                            "atendente": "5d1642ad4b16a50312cc8f4d",
+                            "departamento": "5bf73d1d186f7d2b0d647a61",
+                            "inicio": "2023-12-15T19:11:03.399Z",
+                            "fim": "2023-12-15T19:11:33.786Z",
+                            "atendimentoHumano": false,
+                            "_id": "657ca4c795a89d4dd806ce05"
+                          }
+                        ],
+                        "operacoes": [
+                          {
+                            "tipo": "abertura",
+                            "departamento": "5bf73d1d186f7d2b0d647a61",
+                            "atendente": "5d1642ad4b16a50312cc8f4d",
+                            "_id": "657ca4c795a89d4dd806ce06",
+                            "date": "2023-12-15T19:11:03.400Z"
+                          },
+                          {
+                            "tipo": "finalizar",
+                            "departamento": "5bf73d1d186f7d2b0d647a61",
+                            "atendente": "5d1642ad4b16a50312cc8f4d",
+                            "_id": "657ca4e595a89d4dd806ce34",
+                            "date": "2023-12-15T19:11:33.796Z"
+                          }
+                        ],
+                        "avaliacoes": [],
+                        "observacoes": [],
+                        "nivelPrioridadeListagem": 528377791,
+                        "tipoUsuarioResponsavel": null,
+                        "aguardandoCliente": false,
+                        "language": "pt",
+                        "country": "BR",
+                        "date": "2023-12-15T19:11:03.400Z",
+                        "inicio": "2023-12-15T19:11:03.401Z",
+                        "update": "2023-12-15T19:11:33.833Z",
+                        "transferenciasCallCenter": [],
+                        "solicitacoes": [],
+                        "createdAt": "2023-12-15T19:11:03.404Z",
+                        "updatedAt": "2023-12-15T19:11:33.835Z",
+                        "__v": 0,
+                        "inatividade": {
+                          "acao": "encerramento",
+                          "data": "2023-12-15T19:11:33.742Z"
+                        },
+                        "fim": "2023-12-15T19:11:33.786Z",
+                        "finalizadoPor": "atendente"
+                      },
+                      "id_atend": {
+                        "_id": "5d1642ad4b16a50312cc8f4d",
+                        "empresa": "5bf73d1c186f7d2b0d647a5f",
+                        "token": "Bot_Víctor",
+                        "nome": "Víctor",
+                        "status": "A",
+                        "online": "off",
+                        "tipo": "bot",
+                        "flow": "630e5e8acddad4d139b90ace",
+                        "departamento": "5bf73d1d186f7d2b0d647a61",
+                        "conexoes": [],
+                        "device_token": [],
+                        "__v": 0,
+                        "updatedAt": "2023-12-21T11:52:11.886Z",
+                        "genero": "masc",
+                        "pais": "BR",
+                        "imagem": "arquivos/fdcd7020-2c8b-44f8-b701-50a7611cae92.png",
+                        "inatividade": {
+                          "acao": "encerramento",
+                          "tempoExpiracao": 30,
+                          "departamentoTransferencia": "5d1624085e74a002308aa25e",
+                          "departamentoTransferenciaCallCenter": null,
+                          "mensagem": "Atendimento encerrado por inatividade"
+                        }
+                      },
+                      "mensagem": "Protocolo OPA20232006",
+                      "tipo": "",
+                      "objeto": null,
+                      "chamada": null,
+                      "canalComunicacao": "62a3a36ddcfd29baf4990e2f",
+                      "destinatario": "6539837c61b23cfec1d35918",
+                      "tipoDestinatario": "clientes_users",
+                      "statusEnvio": {
+                        "status": "",
+                        "observacao": ""
+                      },
+                      "data": "2023-12-15T19:11:03.488Z",
+                      "createdAt": "2023-12-15T19:11:03.490Z",
+                      "updatedAt": "2023-12-15T19:11:03.490Z",
+                      "__v": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/canal-comunicacao/": {
+      "get": {
+        "tags": [
+          "Canais de comunicação"
+        ],
+        "summary": "Listar canais de comunicação",
+        "description": "Endpoint responsável pela listagem dos canais de comunicação. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os canais de comunicação.\n\nAlém dos filtros você pode definir opções.\n\n**Filtros disponiveis**\n\n> `nome`  \n`id_atendente`  \n`status`  \n`canal` (valores disponíveis: 'Whatsapp', 'Instagram', 'Page', 'Telegram', 'Messenger' ou 'Telefonia').  \n`integracao` (valores disponíveis: 'facebook' ou 'dialog360'). \n  \n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1canalcomunicacao",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listar canais de comunicação",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "212b435c1cc6221ac1zf125a",
+                        "nome": "Canal 360dialog",
+                        "id_atendente": "116d2132b4x5fe04ehd76f68",
+                        "status": "A",
+                        "canal": "Whatsapp",
+                        "integracao": "dialog360",
+                        "prioridadeListagemAtendimentos": 5
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/canal-comunicacao/212b435c1cc6221ac1zf125a": {
+      "get": {
+        "tags": [
+          "Canais de comunicação"
+        ],
+        "summary": "Buscar canal de comunicação populado",
+        "description": "Endpoint responsável por trazer um único registro filtrado pelo ID inserido na URL.  \nCaso exista algum campo de relacionamento este campo virá populado com as informações invés de somente o ID.",
+        "operationId": "getapiv1canalcomunicacao212b435c1cc6221ac1zf125a",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Buscar canal de comunicação populado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "212b435c1cc6221ac1zf125a",
+                      "nome": "Canal 360dialog",
+                      "id_atendente": {
+                        "_id": "116d2132b4x5fe04ehd76f68",
+                        "nome": "BotExemplo",
+                        "genero": "fem"
+                      },
+                      "status": "A",
+                      "canal": "Whatsapp",
+                      "integracao": "dialog360",
+                      "prioridadeListagemAtendimentos": 5
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/canal-comunicacao/625ac335dadd05f1bd084040/template": {
+      "get": {
+        "tags": [
+          "Canais de comunicação"
+        ],
+        "summary": "Buscar os templates de mensagem por canal",
+        "description": "Endpoint responsável por trazer os templates de mensagem relacionados ao canal de comunicação.",
+        "operationId": "getapiv1canalcomunicacao625ac335dadd05f1bd084040template",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Buscar os templates de mensagem por canal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "13197eb7dfcx7928f233512f",
+                        "texto": "Olá {{nome_usuario}} segue link de assinatura digital do seu contrato {{protocolo}}",
+                        "atalho": "assinatura_digital",
+                        "dados": "{\"element_name\":\"assinatura_digital\",\"id\":\"\",\"namespace\":\"q1xfg921_f0f5_61dx_1260_3ca2417b0f21\",\"idioma\":\"pt_BR\",\"category\":\"UTILITY\",\"templateType\":\"simpleTextTemplate\",\"headerContentType\":\"textHeader\",\"mediaType\":\"\",\"title\":\"\",\"midia\":\"\",\"footer\":\"\",\"buttonType\":\"\",\"textButton1\":\"\",\"textButton2\":\"\",\"url\":\"\"}",
+                        "identificadorCanal": " Oxi9iMOL",
+                        "tipo_mensagem": "dialog360",
+                        "departamentos": [
+                          "5bf26c1f186f7d2b1c647a15"
+                        ],
+                        "anexo": null,
+                        "flow": null,
+                        "createdAt": "2023-12-13T12:08:23.315Z",
+                        "updatedAt": "2023-12-13T12:08:23.315Z",
+                        "__v": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/canal-comunicacao/625ac335dadd05f1bd084040/template/limites-diarios-envio": {
+      "get": {
+        "tags": [
+          "Canais de comunicação"
+        ],
+        "summary": "Buscar limites diários de envio de templates de mensagem",
+        "description": "Endpoint responsável por trazer os limites diários de envio de mensagens do canal (Templates fora da janela de 24 horas), pelo ID inserido na URL.  \nCaso o canal não possua limites de mensagens, virá como objeto vazio.",
+        "operationId": "getapiv1canalcomunicacao625ac335dadd05f1bd084040templatelimitesdiariosenvio",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Buscar limites diários de envio de templates de mensagem",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "messagesSent": 1,
+                      "dailyLimit": 1000,
+                      "availableAmount": 999
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/template": {
+      "get": {
+        "tags": [
+          "Templates de mensagem"
+        ],
+        "summary": "Listar templates",
+        "description": "Endpoint responsável pela listagem dos templates de mensagens. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os canais de comunicação.\n\nTambém é possível definir opções.\n\n**Filtros disponiveis**\n\n> `atalho`  \n`tipo_mensagem` \n  \n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1template",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listar templates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "12452eb7dfcc7928f522912e",
+                        "texto": "Olá {{nome_usuario}} segue link de assinatura digital do seu contrato {{protocolo}}",
+                        "atalho": "assinatura_digital",
+                        "tipo_mensagem": "dialog360",
+                        "departamentos": [
+                          "1bf26d1d136f7d2b0d247a61"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/template/625ac335dadd05f1bd084040": {
+      "get": {
+        "tags": [
+          "Templates de mensagem"
+        ],
+        "summary": "Buscar template populado",
+        "description": "Endpoint responsável por trazer um único registro filtrado pelo ID inserido na URL.  \nCaso exista algum campo de relacionamento este campo virá populado com as informações invés de somente o ID.",
+        "operationId": "getapiv1template625ac335dadd05f1bd084040",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Buscar template populado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "12452eb7dfcc7928f522912e",
+                      "texto": "Olá {{nome_usuario}} segue link de assinatura digital do seu contrato {{protocolo}}",
+                      "atalho": "assinatura_digital",
+                      "tipo_mensagem": "dialog360",
+                      "departamentos": [
+                        {
+                          "_id": "1bf26d1d136f7d2b0d247a61",
+                          "nome": "Suporte",
+                          "status": "A"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/template/send": {
+      "post": {
+        "tags": [
+          "Templates de mensagem"
+        ],
+        "summary": "Enviar template",
+        "description": "Este endpoint realiza o envio de um template de mensagem para o seu cliente, podendo ser usado para avisos, notificações etc. O envio só pode ser feito através de um canal de comunicação ativo do tipo Whatsapp, Telegram, Messenger e Instagram.\n\nNão será possível enviar templates para contatos que já estiverem em atendimento.\n\n**Parâmetros:**\n\n> \\*`contato.canalCliente` : identificador do usuário referente a um canal de comunicação, por exemplo, em um canal do tipo Whatsapp o canalCliente é um número de whatsapp válido (incluindo o +DDI).  \n\\*`template._id` : id do template que será enviado.  \n`template.variaveis` : uma lista das váriaveis que deseja inserir no template.  \n`template.midiaAlternativa:` Um link de mídia que substituirá a mídia original da template. Use este campo quando quiser enviar mídia diferente daquela configurada no seu template de mensagem.  \n\\*`canal` : id do canal de comunicação que fará o envio da mensagem.",
+        "operationId": "postapiv1templatesend",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Enviar template",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "message": "Template has been succesfully sent.",
+                      "messageSentId": "659c365bfdf5907fd69e28XX"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "contato": {
+                    "canalCliente": "+5599999999999"
+                  },
+                  "template": {
+                    "_id": "624c358355802dbdd2eb944a",
+                    "variaveis": [
+                      "variavel 1",
+                      "variavel 2"
+                    ],
+                    "midiaAlternativa": "https://github.com/maymisk.png"
+                  },
+                  "canal": "622f8e310d7149ee66bb654c"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cliente/": {
+      "post": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Criar cliente",
+        "description": "Este endpoint é responsável por criar um novo cliente.\n\n**Parâmetros:**\n\n> `id` : id do seu sistema de origem (integrações erp).  \n`id_fornecedor` : id do seu sistema de origem caso o cliente seja um fornecedor.  \n`id_filial` : id da filial do seu sistema de origem.  \n\\*`nome` : nome completo do cliente.  \n`fantasia` : nome fantasia do cliente.  \n`cpf_cnpj` : cpf ou cnpj do cliente.  \n\\*`status` : status que indica se o cliente é ativo ou inativo.  \n\\*`prospect` : indica se o cliente é um prospect.  \n\\*`cliente` : indica se é um cliente.  \n\\*`fornecedor` : indica se o cliente é um fornecedor.  \n\\*`prestadorServico` : indica se o cliente é um prestador de serviço  \n\\*`publicKey` : chave pública do cliente.  \n`tags`: array com o id das etiquetas de atendimento.",
+        "operationId": "postapiv1cliente",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Criar cliente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "658485e719e7444bbc9f4273"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "nome": "Arnold Schwarzenegger",
+                  "cpf_cnpj": "640.642.910-93",
+                  "status": "A",
+                  "cliente": true,
+                  "prospect": false,
+                  "fornecedor": false,
+                  "prestadorServico": false,
+                  "tags": [
+                    "62878ee28d8911cd3916e8d4",
+                    "62878efe8d8911cd3916e8ee"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Listar clientes",
+        "description": "Endpoint responsável pela listagem dos clientes. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os clientes.\n\nTambém é possível definir opções.\n\n**Filtros disponiveis**\n\n> `id`  \n> `id_fornecedor`  \n> `id_filial`  \n> `nome`  \n> `fantasia`  \n> `cpf_cnpj`  \n> `status`  \n> `prospect`  \n> `cliente`  \n> `fornecedor`\n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n> `limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1cliente",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listar clientes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "658485e719e7444bbc9f4273",
+                        "nome": "Arnold Schwarzenegger",
+                        "fantasia": "",
+                        "cpf_cnpj": "64064291093",
+                        "status": "A",
+                        "prospect": false,
+                        "cliente": true,
+                        "fornecedor": false,
+                        "prestadorServico": false
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cliente/625ac335dadd05f1bd084040": {
+      "put": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Editar cliente",
+        "description": "Este endpoint é responsável por atualizar um cliente. Os parâmetros obrigatórios precisam ser enviados mesmo que não sejam editados, recomendamos sempre consultar o registro antes de atualiza-lo.  \nClientes provenientes de integração não poderão ser editados.\n\n**Parâmetros:**\n\n> \\*`nome` : nome completo do cliente.  \n`fantasia` : nome fantasia do cliente.  \n`cpf_cnpj` : cpf ou cnpj do cliente.  \n\\*`status` : status que indica se o cliente é ativo ou inativo.  \n\\*`prospect` : indica se o cliente é um prospect.  \n\\*`cliente` : indica se é um cliente.  \n\\*`fornecedor` : indica se o cliente é um fornecedor.  \n\\*`prestadorServico` : indica se o cliente é um prestador de serviço.  \n`publicKey` : chave pública do cliente.",
+        "operationId": "putapiv1cliente625ac335dadd05f1bd084040",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Editar cliente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "65848df5ae1d33ee2c1ce988"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "nome": "Arnold Schwarzenegger",
+                  "cpf_cnpj": "640.642.910-93",
+                  "status": "I",
+                  "cliente": true,
+                  "prospect": false,
+                  "fornecedor": false,
+                  "prestadorServico": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Editar parcialmente cliente",
+        "description": "Este endpoint é responsável por atualizar parcialmente os dados de um cliente, ou seja, não é necessário enviar todos os dados para ocorrer uma atualização.\n\nClientes provenientes de integração não poderão ser editados.\n\n**Parâmetros:**\n\n`nome` : nome completo do cliente.  \n`fantasia` : nome fantasia do cliente.  \n`cpf_cnpj` : cpf ou cnpj do cliente.  \n`status` : status que indica se o cliente é ativo ou inativo.  \n`prospect` : indica se o cliente é um prospect.  \n`cliente` : indica se é um cliente.  \n`fornecedor` : indica se o cliente é um fornecedor.  \n`prestadorServico` : indica se o cliente é um prestador de serviço.  \n`publicKey` : chave pública do cliente.",
+        "operationId": "patchapiv1cliente625ac335dadd05f1bd084040",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Editar parcialmente cliente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "65848df5ae1d33ee2c1ce988"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "status": "I"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Buscar cliente populado",
+        "description": "Endpoint responsável por trazer um único registro filtrado pelo ID inserido na URL.  \nCaso exista algum campo de relacionamento este campo virá populado com as informações invés de somente o ID.",
+        "operationId": "getapiv1cliente625ac335dadd05f1bd084040",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Buscar cliente populado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "65848df5ae1d33ee2c1ce988",
+                      "nome": "Arnold Schwarzenegger",
+                      "fantasia": "",
+                      "cpf_cnpj": "64064291093",
+                      "status": "I",
+                      "prospect": false,
+                      "cliente": true,
+                      "fornecedor": false,
+                      "prestadorServico": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Remover cliente",
+        "description": "Endpoint responsável por excluir um cliente.  \nNão será possível excluir clientes que já realizaram atendimentos.",
+        "operationId": "deleteapiv1cliente625ac335dadd05f1bd084040",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Remover cliente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "65848df5ae1d33ee2c1ce988"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/usuario/": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Listar usuários",
+        "description": "Endpoint responsável pela listagem dos usuários. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os usuários.\n\nTambém é possível definir opções.\n\n**Filtros disponiveis**\n\n> `nome`  \n`status` (valores disponíveis: 'A' para ativo e 'I' para inativo)  \n`tipo` (valores disponíveis: 'user', 'bot' ou 'callCenter') \n  \n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1usuario",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listar usuários",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "5d1642434b16a50312cc8f43",
+                        "nome": "Lucas Silva",
+                        "status": "A",
+                        "tipo": "user"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/contato/": {
+      "post": {
+        "tags": [
+          "Contatos"
+        ],
+        "summary": "Criar contato",
+        "description": "Este endpoint é responsável por criar um novo contato.\n\n**Parâmetros:**\n\n> `id_contato` : id do seu sistema de origem (integrações erp).  \n`id_cliente` : id do seu sistema de origem (integrações erp).  \n`id_fornecedor` : id do seu sistema de origem (integrações erp).  \n\\*`nome` : nome do contato  \n`classificacao` : classificação do contato, podendo ser: 'titular', 'familiar', 'amigo', 'trabalho', 'outro'.  \n`foneResidencialCompleto` : telefone residencial completo com +ddi e ddd.  \n`foneComercialCompleto` : telefone comercial completo com +ddi e ddd.  \n`celularCompleto` : telefone celular completo com +ddi e ddd.  \n`WhatsappCompleto` : whatsapp completo com +ddi e ddd.  \n\\*`requerAutenticacaoSempre` : define se o contato deve se autenticar sempre ao entrar em contato.  \n\\*`habilitarAlerta` : habilita o alerta de notificações.  \n\\*`lead` : define se o contato é um lead.  \n\\*`historico_email` : define se o contato deve receber um email com o histórico do atendimentos.  \n`email_principal` : email do contato.  \n`mensagemAlerta` : mensagem que será enviada na notificação.\n\\*`senha` : senha do contato.\n\\*`repetirSenha` : repetição da senha do contato.",
+        "operationId": "postapiv1contato",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Criar contato",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "6584973019e7444bbc9f435f"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "nome": "Arnold Schwarzenegger",
+                  "celularCompleto": "+5549988776655",
+                  "requerAutenticacaoSempre": true,
+                  "habilitarAlerta": true,
+                  "lead": false,
+                  "historico_email": true,
+                  "senha": "senha",
+                  "repetirSenha": "senha"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Contatos"
+        ],
+        "summary": "Listar contatos",
+        "description": "Endpoint responsável pela listagem dos contatos. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os contatos.\n\nTambém é possível definir opções.\n\n**Filtros disponiveis**\n\n> `nome`  \n`email_principal`  \n`\"fones.numero\"`  \n`classificacao`  \n`cli_emp` \n  \n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1contato",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listar contatos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "6584973019e7444bbc9f435f",
+                        "nome": "Arnold Schwarzenegger",
+                        "email_principal": null,
+                        "cli_emp": null,
+                        "fones": [
+                          {
+                            "numero": "+5549988776655",
+                            "tipo": "Celular",
+                            "whatsapp": false,
+                            "celular": true,
+                            "integracao": false,
+                            "_id": "6584973019e7444bbc9f4360"
+                          }
+                        ],
+                        "lead": false,
+                        "historico_email": true,
+                        "habilitarAlerta": true,
+                        "requerAutenticacaoSempre": true,
+                        "classificacao": "",
+                        "opt_in_opt_out": []
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/contato/625ac335dadd05f1bd084040": {
+      "put": {
+        "tags": [
+          "Contatos"
+        ],
+        "summary": "Editar contato",
+        "description": "Este endpoint é responsável por atualizar um contato. Os parâmetros obrigatórios precisam ser enviados mesmo que não sejam editados, recomendamos sempre consultar o registro antes de atualiza-lo.  \nContatos provenientes de integração não poderão ser editados.\n\n**Parâmetros:**\n\n> \\*`nome` : nome do contato  \n> `celularCompleto` : telefone celular completo com +ddi e ddd  \n> \\*`requerAutenticacaoSempre` : define se o contato deve se autenticar sempre ao entrar em contato.  \n> \\*`habilitarAlerta` : habilita o alerta de notificações  \n> \\*`lead` : define se o contato é um lead  \n> \\*`historico_email` : define se o contato deve receber um email com o histórico do atendimentos",
+        "operationId": "putapiv1contato625ac335dadd05f1bd084040",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Editar contato",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "6584973019e7444bbc9f435f"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "nome": "Arnold Schwarzenegger",
+                  "celularCompleto": "+5549988776655",
+                  "requerAutenticacaoSempre": true,
+                  "habilitarAlerta": true,
+                  "lead": false,
+                  "historico_email": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Contatos"
+        ],
+        "summary": "Buscar contato populado",
+        "description": "Endpoint responsável por trazer um único registro filtrado pelo ID inserido na URL.  \nCaso exista algum campo de relacionamento este campo virá populado com as informações invés de somente o ID.",
+        "operationId": "getapiv1contato625ac335dadd05f1bd084040",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Buscar contato populado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "6584973019e7444bbc9f435f",
+                      "nome": "Arnold Schwarzenegger",
+                      "email_principal": null,
+                      "cli_emp": null,
+                      "fones": [
+                        {
+                          "numero": "+5549988776655",
+                          "tipo": "Celular",
+                          "whatsapp": false,
+                          "celular": true,
+                          "integracao": false,
+                          "_id": "658497da19e7444bbc9f4377"
+                        }
+                      ],
+                      "lead": false,
+                      "historico_email": true,
+                      "habilitarAlerta": true,
+                      "requerAutenticacaoSempre": true,
+                      "classificacao": "",
+                      "opt_in_opt_out": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Contatos"
+        ],
+        "summary": "Remover contato",
+        "description": "Endpoint responsável por excluir um contato.  \nNão será possível excluir contatos que já realizaram atendimentos.",
+        "operationId": "deleteapiv1contato625ac335dadd05f1bd084040",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Remover contato",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "6584973019e7444bbc9f435f"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/etiqueta/": {
+      "post": {
+        "tags": [
+          "Etiqueta"
+        ],
+        "summary": "Criar etiqueta",
+        "description": "Este endpoint é responsável por criar um novo contato.\n\n**Parâmetros:**\n\n> \\*`nome` : nome da etiqueta.  \n\\*`cor` : valor HEX da cor da etiqueta.  \n\\*`tipo` : a etiqueta pode ser do tipo \"empresa\" ou \"usuario\".  \n`id_criador` : se o tipo for \"usuario\", deve ser informado o id desse usuário.",
+        "operationId": "postapiv1etiqueta",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Criar etiqueta",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "6584995a19e7444bbc9f4440"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "nome": "Nome da Etiqueta",
+                  "cor": "#F5F5F5",
+                  "tipo": "empresa"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Etiqueta"
+        ],
+        "summary": "Listar etiquetas",
+        "description": "Endpoint responsável pela listagem das etiquetas. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todas as etiquetas.\n\nTambém é possível definir opções.\n\n**Filtros disponiveis**\n\n> `nome`  \n`id_criador`  \n`tipo`\n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1etiqueta",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listar etiquetas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "6584995a19e7444bbc9f4440",
+                        "nome": "Nome da Etiqueta",
+                        "cor": "#F5F5F5"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/notificacao/send": {
+      "post": {
+        "tags": [
+          "Notificação"
+        ],
+        "summary": "Enviar notificação",
+        "description": "Este endpoint realiza o envio de notificações para os usuários (atendentes) do sistema. As notificações podem ser utilizadas para o informe de novidades e alertas, além de ser possível enviar pesquisas aos usuários.\n\n**Parâmetros:**\n\n> `users`: array contendo os ids (ObjectId) dos usuários a serem notificados. Caso não forem informados destinatários, as notificações serão enviadas para todos usuários ativos do sistema.\n> \n> \\*`type`: tipo da notificação enviada, a mesma pode conter um dos 3 valores: alert, news ou survey.\n> \n> \\*`title`: título da notificação.\n> \n> \\*`description`: descrição da notificação.\n> \n> `link`: campo para a adição de algum link de redirecionamento da notificação.",
+        "operationId": "postapiv1notificacaosend",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Enviar notificação",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      "658499df19e7444bbc9f4453"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "users": [
+                    "636e3b59d3469e7108b67d49",
+                    "636e3b75043d5f805ff40fa8"
+                  ],
+                  "type": "news",
+                  "title": "Notificação 1",
+                  "description": "Descrição notificação 1",
+                  "link": "https://google.com.br"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/departamento/": {
+      "post": {
+        "tags": [
+          "Departamentos"
+        ],
+        "summary": "Criar departamento",
+        "description": "Este endpoint é responsável por criar um novo departamento.\n\n**Parâmetros:**\n\n\\*`nome` : nome do departamento.  \n\\*`status` : status do departamento, podendo ser 'A' ou 'I', ativo ou inativo respectivamente.  \n`token` : token do departamento.  \n`ordem` : ordem do departamento.  \n`parametros` : parametros do departamento, array que pode conter os parâmetros 'notifica_ag', 'motivo_atendimento', 'observacaoAtendimento' e 'realizaAtendimento'.  \n`flowAvaliacao` : id do fluxo de comunicação da pesquisa de satisfação.  \n`encerramentoInatividadeAvaliacao` : tempo máximo de inatividade em minutos da pesquisa de satisfação.  \n`mensagemEncerramentoInatividade` : mensagem de encerramento da pesquisa de satisfação por inatividade.  \n`cod_pabx` : código PABX do departamento para transferências de ligações.  \n\\*`tipoEncaminhamentoLigacoes` : encaminhamento de ligações, podendo ser 'S' ou 'T', encaminhamento simultâneo ou transbordo respectivamente.  \n`departamentoTransbordoAlternativo` : id do departamento para transferir ligação do transbordo.  \n`encaminharLigacao` : quantidade de atendentes que receberão a chamada no tipo simultâneo.  \n`encerrarAtendPabxAoDesligar` : encerrar atendimento quando o cliente desligar o telefone.",
+        "operationId": "postapiv1departamento",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Criar departamento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "65849a5cae1d33ee2c1cea6d"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "nome": "Teste API",
+                  "status": "A",
+                  "tipoEncaminhamentoLigacoes": "S"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Departamentos"
+        ],
+        "summary": "Listar departamentos",
+        "description": "Endpoint responsável pela listagem dos departamentos. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os departamentos.\n\nTambém é possível definir opções.\n\n**Filtros disponiveis**\n\n> `nome`  \n> `token`  \n> `cod_pabx`  \n> `realizaAtendimento`\n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n> `limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1departamento",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listar departamentos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "65849a5cae1d33ee2c1cea6d",
+                        "nome": "Teste API",
+                        "descricao": "",
+                        "status": "A",
+                        "ordem": 25,
+                        "notifica_ag": "I",
+                        "motivo_atendimento": false,
+                        "realizaAtendimento": false,
+                        "observacaoAtendimento": false,
+                        "flowAvaliacao": null,
+                        "encerramentoInatividadeAvaliacao": 30,
+                        "cod_pabx": 126,
+                        "tipoEncaminhamentoLigacoes": "S",
+                        "encaminharLigacaoTodosAtendentes": false,
+                        "encerrarAtendPabxAoDesligar": false
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/departamento/625ac335dadd05f1bd084040": {
+      "get": {
+        "tags": [
+          "Departamentos"
+        ],
+        "summary": "Buscar departamento populado",
+        "description": "Endpoint responsável por trazer um único registro filtrado pelo ID inserido na URL.  \nCaso exista algum campo de relacionamento este campo virá populado com as informações invés de somente o ID.",
+        "operationId": "getapiv1departamento625ac335dadd05f1bd084040",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Buscar departamento populado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "65849a5cae1d33ee2c1cea6d",
+                      "nome": "Teste API",
+                      "descricao": "",
+                      "status": "A",
+                      "ordem": 25,
+                      "notifica_ag": "I",
+                      "motivo_atendimento": false,
+                      "realizaAtendimento": false,
+                      "observacaoAtendimento": false,
+                      "flowAvaliacao": null,
+                      "encerramentoInatividadeAvaliacao": 30,
+                      "cod_pabx": 126,
+                      "tipoEncaminhamentoLigacoes": "S",
+                      "encaminharLigacaoTodosAtendentes": false,
+                      "encerrarAtendPabxAoDesligar": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Departamentos"
+        ],
+        "summary": "Editar departamento",
+        "description": "Este endpoint é responsável por atualizar um departamento. Os parâmetros obrigatórios precisam ser enviados mesmo que não sejam editados, recomendamos sempre consultar o registro antes de atualiza-lo.\n\n**Parâmetros:**\n\n> \\*`nome` : nome do departamento.\n\\*`status` : indica o status do departamento.  \n\\*`tipoEncaminhamentoLigacoes` : indica o tipo de encaminhamento de ligações\n\\*`cod_pabx` : código pabx do departamento.",
+        "operationId": "putapiv1departamento625ac335dadd05f1bd084040",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Editar departamento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "65849a5cae1d33ee2c1cea6d"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "nome": "Departamento",
+                  "status": "I",
+                  "tipoEncaminhamentoLigacoes": "S",
+                  "cod_pabx": "332"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/atendimento/motivo": {
+      "get": {
+        "tags": [
+          "Motivos"
+        ],
+        "summary": "Listar motivos",
+        "description": "Endpoint responsável pela listagem dos motivos de atendimento. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os motivos.\n\nAlém dos filtros você pode definir opções.\n\n**Filtros disponiveis**\n\n> `motivo`  \n`departamentos` \n  \n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1atendimentomotivo",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listar motivos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "65849b48ae1d33ee2c1cea94",
+                        "motivo": "Teste API",
+                        "departamentos": [
+                          "65849b33ae1d33ee2c1cea8d"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/atendimento/motivo/:id": {
+      "get": {
+        "tags": [
+          "Motivos"
+        ],
+        "summary": "Buscar motivo",
+        "description": "Endpoint responsável pela listagem de um motivos de atendimento.\n\nAlém dos filtros você pode definir opções.\n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1atendimentomotivoid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Buscar motivo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "65849b48ae1d33ee2c1cea94",
+                      "motivo": "Teste API",
+                      "departamentos": [
+                        "65849b33ae1d33ee2c1cea8d"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/atendimento/periodo": {
+      "get": {
+        "tags": [
+          "Períodos"
+        ],
+        "summary": "Listar períodos",
+        "description": "Endpoint responsável pela listagem dos períodos de atendimento. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os períodos.\n\nAlém dos filtros você pode definir opções.\n\n**Filtros disponiveis**\n\n> `nome`  \n`departamento`  \n`ativo`  \n`periodos.nome`  \n`periodos.nome   periodos.horaInicio   periodos.horaFim   periodos.segunda   periodos.terca   periodos.quarta   periodos.quinta   periodos.sexta   periodos.sabado   periodos.domingo   periodos.feriado` \n  \n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1atendimentoperiodo",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listar períodos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": [
+                      {
+                        "_id": "5fd0dc3f29ed4439abb789d3",
+                        "nome": "Comercial",
+                        "ativo": true,
+                        "periodos": [
+                          {
+                            "_id": "5fd0dc5929ed4439abb789d4",
+                            "segunda": true,
+                            "terca": true,
+                            "quarta": true,
+                            "quinta": true,
+                            "sexta": true,
+                            "sabado": true,
+                            "domingo": false,
+                            "feriado": false,
+                            "nome": "Manhã",
+                            "horaInicio": "1970-01-01T08:00:00.000Z",
+                            "horaFim": "1970-01-01T12:00:00.000Z"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/atendimento/periodo/:id": {
+      "get": {
+        "tags": [
+          "Períodos"
+        ],
+        "summary": "Buscar período",
+        "description": "Endpoint responsável pela listagem de um período de atendimento.\n\nAlém dos filtros você pode definir opções.\n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
+        "operationId": "getapiv1atendimentoperiodoid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer MEUTOKEN"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Buscar período",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": "success",
+                    "code": 200,
+                    "data": {
+                      "_id": "5fd0dc3f29ed4439abb789d3",
+                      "nome": "Comercial",
+                      "ativo": true,
+                      "periodos": [
+                        {
+                          "_id": "5fd0dc5929ed4439abb789d4",
+                          "segunda": true,
+                          "terca": true,
+                          "quarta": true,
+                          "quinta": true,
+                          "sexta": true,
+                          "sabado": true,
+                          "domingo": false,
+                          "feriado": false,
+                          "nome": "Manhã",
+                          "horaInicio": "1970-01-01T08:00:00.000Z",
+                          "horaFim": "1970-01-01T12:00:00.000Z"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -161,86 +2011,66 @@
     }
   },
   "components": {
-    "schemas": {
-      "Atendimento": {
-        "required": [],
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string"
-          },
-          "code": {
-            "type": "string",
-            "format": "int32"
-          },
-          "data": {
-            "type": "array"
-          }
-        }
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      }
-    },
+    "schemas": {},
     "securitySchemes": {
-      "bearerAuth": {
+      "basicAuth": {
         "type": "http",
-        "scheme": "bearer"
+        "scheme": "basic"
+      },
+      "digestAuth": {
+        "type": "http",
+        "scheme": "digest"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Atendimentos",
+      "description": ""
+    },
+    {
+      "name": "Mensagens",
+      "description": ""
+    },
+    {
+      "name": "Canais de comunicação",
+      "description": ""
+    },
+    {
+      "name": "Templates de mensagem",
+      "description": ""
+    },
+    {
+      "name": "Cliente",
+      "description": ""
+    },
+    {
+      "name": "Usuário",
+      "description": ""
+    },
+    {
+      "name": "Contatos",
+      "description": ""
+    },
+    {
+      "name": "Etiqueta",
+      "description": ""
+    },
+    {
+      "name": "Notificação",
+      "description": ""
+    },
+    {
+      "name": "Departamentos",
+      "description": ""
+    },
+    {
+      "name": "Motivos",
+      "description": ""
+    },
+    {
+      "name": "Períodos",
+      "description": ""
+    }
+  ]
 }
-
-              <!-- "status": "success",
-              "code": 200,
-              "data": [
-                {
-                  "_id": "657c407f95a89d4dd802ca1c",
-                  "id_cliente": "646657ac0940d216c59e95ea",
-                  "id_user": "1532837c61b23cfec1d35918",
-                  "id_atendente": "5d1242134b16a50312cc8f43",
-                  "setor": "5bf13d1d126f7d2b0d647a61",
-                  "descricao": "",
-                  "status": "F",
-                  "canal": "page",
-                  "canal_id": "12a3a36ddcfd22baf4990e2f",
-                  "canal_cliente": "c1b22a37-fb6a-4875-bd3c-dae9735393c6",
-                  "protocolo": "OPA20232025",
-                  "tags": [],
-                  "avaliacoes": [],
-                  "observacoes": [],
-                  "date": "2023-12-15T12:03:11.406Z",
-                  "fim": "2023-12-15T19:11:02.391Z"
-                },
-                {
-                  "_id": "657ca4c795a89d4dd105ce04",
-                  "id_cliente": "646657ac0940d486c51e25ea",
-                  "id_user": "6539837c12b53cfec1d35918",
-                  "id_atendente": "1d1246ad4b16a50312cc8f4d",
-                  "setor": "1bf72d1d186f7d2b0d647a61",
-                  "descricao": "",
-                  "status": "F",
-                  "canal": "page",
-                  "canal_id": "62a3a24ddcfd29baf4120e2f",
-                  "canal_cliente": "c7b25a32-fb6a-4175-bd1c-dae9735393c6",
-                  "protocolo": "OPA20232016",
-                  "tags": [],
-                  "avaliacoes": [],
-                  "observacoes": [],
-                  "date": "2023-12-15T19:11:03.400Z",
-                  "fim": "2023-12-15T19:11:33.786Z"
-                }
-              ] -->

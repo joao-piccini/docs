@@ -88,7 +88,7 @@
           "Atendimentos"
         ],
         "summary": "Listar atendimentos",
-        "description": "Endpoint responsável pela listagem dos atendimentos. Utilize o corpo da requisição para aplicar filtros e opções de paginação.",
+        "description": "Endpoint responsável pela listagem dos atendimentos. Para montar seus filtros use o body. Caso nenhum filtro seja passado o resultado trará todos os atendimentos.\n\nAlém dos filtros você pode definir opções.\n\n**Filtros disponiveis**\n\n> `protocolo`  \n> `dataInicialAbertura`  \n> `dataFinalAbertura`\n> `dataInicialEncerramento`\n> `dataFinalEncerramento` \n\n**Opções disponíves**\n\n> `skip` : quantidade de registros que deseja \"pular\" (paginação)  \n`limit` : limite máximo de registros para exibir",
         "operationId": "getapiv1atendimento",
         "parameters": [
           {
@@ -101,78 +101,9 @@
             "example": "Bearer MEUTOKEN"
           }
         ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "filters": {
-                    "type": "object",
-                    "properties": {
-                      "protocolo": {
-                        "type": "string",
-                        "description": "Filtro pelo protocolo do atendimento"
-                      },
-                      "dataInicialAbertura": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Filtro pela data inicial de abertura do atendimento"
-                      },
-                      "dataFinalAbertura": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Filtro pela data final de abertura do atendimento"
-                      },
-                      "dataInicialEncerramento": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Filtro pela data inicial de encerramento do atendimento"
-                      },
-                      "dataFinalEncerramento": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Filtro pela data final de encerramento do atendimento"
-                      }
-                    }
-                  },
-                  "options": {
-                    "type": "object",
-                    "properties": {
-                      "skip": {
-                        "type": "integer",
-                        "default": 0,
-                        "description": "Quantidade de registros a pular (paginação)"
-                      },
-                      "limit": {
-                        "type": "integer",
-                        "default": 10,
-                        "description": "Limite máximo de registros para exibir"
-                      }
-                    }
-                  }
-                }
-              },
-              "example": {
-                "filters": {
-                  "protocolo": "AST20232025",
-                  "dataInicialAbertura": "2023-12-01T00:00:00Z",
-                  "dataFinalAbertura": "2023-12-31T23:59:59Z",
-                  "dataInicialEncerramento": "2023-12-01T00:00:00Z",
-                  "dataFinalEncerramento": "2023-12-31T23:59:59Z"
-                },
-                "options": {
-                  "skip": 0,
-                  "limit": 10
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
-            "description": "Lista de atendimentos",
+            "description": "Listar atendimentos",
             "content": {
               "application/json": {
                 "schema": {
